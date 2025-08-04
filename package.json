@@ -5,18 +5,18 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rat9615/simple-nodejs-app.git"
+    "url": "git+https://github.com/champp4/CICD-Demo.git"
   },
-  "author": "Rohan R",
+  "author": "Your Name",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rat9615/simple-nodejs-app/issues"
+    "url": "https://github.com/champp4/CICD-Demo/issues"
   },
-  "homepage": "https://github.com/rat9615/simple-nodejs-app#readme",
+  "homepage": "https://github.com/champp4/CICD-Demo#readme",
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.17.3",
@@ -24,5 +24,9 @@
     "nodemon": "^2.0.20",
     "request": "^2.88.2",
     "wiki-infobox-parser": "^0.1.11"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "supertest": "^6.3.0"
   }
 }
