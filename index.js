@@ -3,15 +3,15 @@ const app = express();
 const request = require('request');
 const wikip = require('wiki-infobox-parser');
 
-//ejs
+// ejs
 app.set("view engine", 'ejs');
 
-//routes
-app.get('/', (req,res) =>{
+// routes
+app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/index', (req,response) =>{
+app.get('/index', (req, response) => {
     let url = "https://en.wikipedia.org/w/api.php"
     let params = {
         action: "opensearch",
@@ -22,32 +22,34 @@ app.get('/index', (req,response) =>{
     }
 
     url = url + "?"
-    Object.keys(params).forEach( (key) => {
-        url += '&' + key + '=' + params[key]; 
+    Object.keys(params).forEach((key) => {
+        url += '&' + key + '=' + params[key];
     });
 
-    //get wikip search string
-    request(url,(err,res, body) =>{
-        if(err) {
+    // get wikip search string
+    request(url, (err, res, body) => {
+        if (err) {
             response.redirect('404');
-        }
+        } else {
             result = JSON.parse(body);
             x = result[3][0];
-            x = x.substring(30, x.length); 
-            //get wikip json
-            wikip(x , (err, final) => {
-                if (err){
+            x = x.substring(30, x.length);
+            // get wikip json
+            wikip(x, (err, final) => {
+                if (err) {
                     response.redirect('404');
-                }
-                else{
+                } else {
                     const answers = final;
                     response.send(answers);
                 }
             });
+        }
     });
-
-    
 });
 
-//port
-app.listen(3000, console.log("Listening at port 3000..."))
+
+if (require.main === module) {
+    app.listen(3000, () => console.log("Listening at port 3000..."));
+}
+
+module.exports = app; 
