@@ -1,22 +1,13 @@
 {
   "name": "simple-nodejs-app",
   "version": "1.0.0",
-  "description": "Research about a person",
+  "description": "A simple Node.js app with CI/CD pipeline using GitHub Actions and Docker",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/champp4/CICD-Demo.git"
-  },
-  "author": "Your Name",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/champp4/CICD-Demo/issues"
-  },
-  "homepage": "https://github.com/champp4/CICD-Demo#readme",
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.17.3",
